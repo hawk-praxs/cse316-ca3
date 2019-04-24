@@ -158,9 +158,9 @@ public class Process
         total_burst_time += array[i].burst_time; 
       }
       
-      cout << "Average waiting time \n" << (float)totalwaitingtime / (float)n; 
-      cout << "Average response time \n" << (float)totalresponsetime / (float)n; 
-      cout << "Average turn around time \n" << (float)(totalwaitingtime + totalbursttime) / (float)n; 
+      cout << "Average waiting time \n" << (float)total_waiting_time / (float)n; 
+      cout << "Average response time \n" << (float)total_response_time / (float)n; 
+      cout << "Average turn around time \n" << (float)(total_waiting_time + total_burst_time) / (float)n; 
     }
 }
 
@@ -174,7 +174,7 @@ int main()
   cout << "Enter Process ID, Priority, Arrival Time & Burst Time:";
   for(int i = 0; i < n; i++)
   {
-    cout << i;
+    cout << i << '\n';
     cin >> process_id >> priority >> arrival_time >> burst_time;
     process[i].process_id = process_id;
     process[i].priority = priority;
