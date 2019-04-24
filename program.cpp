@@ -108,10 +108,7 @@ public class Process
       }
     } 
   
-// This function is responsible for 
-// managing the entire execution of the 
-// processes as they arrive in the CPU 
-// according to their arrival time. 
+    // Manages the entire execution of the processes as they arrive in the CPU on the basis of their arrival time. 
     void priority(Process array[], int n) 
     {
       sort(array, array + n, compare); 
@@ -133,8 +130,7 @@ public class Process
           array[i].temp_burst_time = array[i].burst_time; 
       } 
   
-      // Inserting the processes in Heap 
-      // according to arrival time 
+      // Inserting the processes in Queue[] on the basis of arrival time 
       do{
         if (inserted_process != n)
         {
