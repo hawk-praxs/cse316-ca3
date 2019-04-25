@@ -90,7 +90,7 @@ void scheduling(Process Queue[], Process array[], int n, int* queue_size, int* c
     Process min = extractminimum(Queue, queue_size, current_time); 
     min.out_time = *current_time + 1; 
     --min.burst_time;
-    cout << "Process ID = " << min.process_id << "Current Time = " << *current_time;
+    cout << "Process ID = " << min.process_id << " Current Time = " << *current_time << '\n';
   
     //Reinsert the unfinished process into the Queue[] 
     if (min.burst_time > 0)
@@ -160,24 +160,25 @@ void Priority(Process array[], int n)
         total_burst_time += array[i].burst_time; 
     }
       
-      cout << "Average waiting time \n" << (float)total_waiting_time / (float)n; 
-      cout << "Average response time \n" << (float)total_response_time / (float)n; 
-      cout << "Average turn around time \n" << (float)(total_waiting_time + total_burst_time) / (float)n;
+      cout << "Average Waiting Time = " << (float)total_waiting_time / (float)n << '\n'; 
+      cout << "Average Response Time = " << (float)total_response_time / (float)n << '\n'; 
+      cout << "Average Turn Around Time = " << (float)(total_waiting_time + total_burst_time) / (float)n << '\n';
 }
 
 int main()
 {
-    int n, process_id, priority, arrival_time, burst_time;
+    int n, priority, arrival_time, burst_time;
     cout << "Enter no. of processes: ";
     cin >> n;
   
     Process process[n];
-    cout << "Enter Process ID, Priority, Arrival Time & Burst Time:";
+    cout << '\n' << "Enter Priority, Arrival Time & Burst Time ";
     for(int i = 0; i < n; i++)
     {
-        cout << i << '\n';
-        cin >> process_id >> priority >> arrival_time >> burst_time;
-        process[i].process_id = process_id;
+        cout << '\n' << "For Process ID " << i + 1 << "-->" << '\n';
+        cin >> priority >> arrival_time >> burst_time;
+		cout << '\n';
+        process[i].process_id = i + 1;
         process[i].priority = priority;
         process[i].arrival_time = arrival_time;
         process[i].burst_time = burst_time;
@@ -186,4 +187,4 @@ int main()
     Priority(process, n);
   
   return 0; 
-} 
+}
